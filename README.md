@@ -7,6 +7,8 @@ The system uses facilities from both [Flite](https://github.com/festvox/flite) a
 
 To run the DM:
   1. navigate to a suitable directory in a terminal window
-  2. start the Julius backend with previously prepared language and acoustic models on the default socket 10500 and ensure that both flite and festival (as server) are available and running correctly for your purposes
+  2. start the Julius backend with previously prepared language and acoustic models on the default socket 10500. The current test is for an active process with configuration file that contains "mod.jconf". Also ensure that both flite and festival (as server) are available and running correctly for your purposes
   3. in a separate terminal window run "`julia dm.jl`"
-  4. monitor the outputs in both terminal windows to watch for issues.
+  4. monitor the outputs in both terminal windows to watch for issues
+  5. in the current code, the voice command "ZULU ZULU" causes the DM to terminate. Alternatively, terminating the running Julia in the terminal window will of couse stop the process. Normal termination of the DM also terminates the Julius socket server and closes the socket
+  6. If there is no response from the audio but there is a response from the request for the STATUS this might indicate that the Julius server needs to be started with `padsp` if Pulseaudio is running your sound system.
