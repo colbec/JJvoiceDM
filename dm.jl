@@ -147,8 +147,9 @@ if  Jpid > 0
 	try
 		cs = connect(10500)
 	catch e
-		@error "cannot connect to socket on 10500"
+		println(e)
 		announce("julius is not running. stopping now")
+		error("cannot connect to socket on 10500")
 	end
 	announce("Julius is ready")
 	println(juliusGetStatus(cs))
